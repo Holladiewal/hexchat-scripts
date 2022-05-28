@@ -1453,7 +1453,8 @@ def command(name, collect=False, help="", requires_alert=False, raw=False):
                     if max_args is not None:
                         if collect and ct >= max_args:
                             args = list(event.words[:max_args - 1])
-                            args.append(event.word_eol[max_args - 1])
+                            # FIXME: Whatever appending the last word was supposed to do, it's not working (anymore)
+                            # args.append(event.word_eol[max_args - 1])
                         elif max_args < ct:
                             raise InvalidCommandException("Incorrect number of arguments")
                     if args is None:
